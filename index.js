@@ -77,14 +77,15 @@ app.delete('/api/notes/:id', (request, response) =>{
 })
 
 const badPath = (request, response, next) => {
-    response.status(404).send({error: 'Ruta desconocida'})
+    response.status(404).send({error: 'Ruta desconocida'})
 }
 
 app.use(badPath)
 
-const PORT = 3001;
+//Para el proovedor le damos la opcion de escoger el puerto
+const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () =>{
-    console.log(`Server Running in port ${PORT}`);
+    console.log(`Server Running on port ${PORT}`);
 })
 
